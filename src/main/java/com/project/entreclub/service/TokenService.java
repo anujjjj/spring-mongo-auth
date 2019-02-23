@@ -64,9 +64,11 @@ public class TokenService {
     }
 
     public boolean checkToken(ObjectId userId,String token) {
-               User u= userService.getUser(userId);
-        return (u.getToken().equals(token));
-//return true;
+       User u= userService.getUser(userId);
+       if(u!=null){
+           return (u.getToken().equals(token));
+       }
+       return false;
     }
 
     public boolean isTokenValid(String token) {

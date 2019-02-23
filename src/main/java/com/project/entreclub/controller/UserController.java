@@ -23,10 +23,15 @@ public class UserController {
 
     @PostMapping("/register")
     public String regiterUser(@RequestBody User user) {
+        String token="";
         User user1 =  userService.saveUser(user);
-        String token =  tokenService.createToken(user1.getId());
-       user1.setToken(token);
-       userService.saveUser(user1);
+
+        if(user1!=null){
+           token =  tokenService.createToken(user1.getId());
+            user1.setToken(token);
+            userService.saveUser(user1);
+        }
+
         return token;
     }
 

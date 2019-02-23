@@ -18,6 +18,7 @@ public class User {
     private ObjectId id;
     private String name;
 
+    @JsonIgnore
     public String getToken() {
         return token;
     }

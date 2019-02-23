@@ -34,7 +34,6 @@ public class JWTFilter extends GenericFilterBean {
 
         HttpServletResponse response = (HttpServletResponse) res;
         String header = request.getHeader(HEADER_STRING);
-        String username = null;
         String token = null;
         if (header != null && header.startsWith(TOKEN_PREFIX)) {
             token = header.replace(TOKEN_PREFIX, "");
